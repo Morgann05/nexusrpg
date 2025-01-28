@@ -93,12 +93,12 @@ function resolveSuccessType(num, roll, showBranches) {
             return { description: 'Desastre', isSuccess: false };
         if (roll === 20)
             return { description: 'Perfeito', isSuccess: true };
-        if (roll >= num * extremeRate / 21 )
+        if (roll <= num * extremeRate / 21 )
             return { description: 'Extremo', isSuccess: true };
-        if (roll >= num * goodRate / 21 )
+        if (roll <= num * goodRate / 21 )
             return { description: 'Bom', isSuccess: true };
     }
-    if (roll >= num / 21 )
+    if (roll <= num / 21 )
         return { description: 'Sucesso', isSuccess: true };
     if (roll < num / 21 )
         return { description: 'Fracasso', isSuccess: false };
