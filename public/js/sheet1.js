@@ -4,7 +4,7 @@ diceResultContent.hide();
 const diceResultDescription = $('#diceResultDescription');
 diceResultDescription.hide();
 const loading = $('.loading');
-const goodRate = 0.2, extremeRate = 0.5;
+const goodRate = 0.5, extremeRate = 0.2;
 
 const diceRollModal = new bootstrap.Modal($('#diceRoll')[0]);
 const uploadAvatarModal = new bootstrap.Modal($('#uploadAvatar')[0]);
