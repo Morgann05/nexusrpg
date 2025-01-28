@@ -1,4 +1,4 @@
-const diceRollMax = 20;
+const diceRollMax = 100;
 const diceResultContent = $('#diceResultContent');
 diceResultContent.hide();
 const diceResultDescription = $('#diceResultDescription');
@@ -89,18 +89,18 @@ $('#diceRoll').on('hidden.bs.modal', ev => {
 
 function resolveSuccessType(num, roll, showBranches) {
     if (showBranches) {
-        if (roll === 1)
+        if (roll === 100)
             return { description: 'Desastre', isSuccess: false };
-        if (roll === 20)
+        if (roll === 1)
             return { description: 'Perfeito', isSuccess: true };
-        if (roll <= num * extremeRate / 21 )
+        if (roll <= num * extremeRate )
             return { description: 'Extremo', isSuccess: true };
-        if (roll <= num * goodRate / 21 )
+        if (roll <= num * goodRate )
             return { description: 'Bom', isSuccess: true };
     }
-    if (roll <= num / 21 )
+    if (roll <= num  )
         return { description: 'Sucesso', isSuccess: true };
-    if (roll < num / 21 )
+    if (roll > num  )
         return { description: 'Fracasso', isSuccess: false };
 
     return { description: 'Unknown', isSuccess: false };
