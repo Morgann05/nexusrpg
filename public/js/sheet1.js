@@ -4,7 +4,7 @@ diceResultContent.hide();
 const diceResultDescription = $('#diceResultDescription');
 diceResultDescription.hide();
 const loading = $('.loading');
-const goodRate = 0.5, extremeRate = 0.2;
+const goodRate = 0.2, extremeRate = 0.5;
 
 const diceRollModal = new bootstrap.Modal($('#diceRoll')[0]);
 const uploadAvatarModal = new bootstrap.Modal($('#uploadAvatar')[0]);
@@ -93,14 +93,14 @@ function resolveSuccessType(num, roll, showBranches) {
             return { description: 'Desastre', isSuccess: false };
         if (roll === 20)
             return { description: 'Perfeito', isSuccess: true };
-        if (roll >= num * extremeRate)
+        if (roll <= num * extremeRate)
             return { description: 'Extremo', isSuccess: true };
-        if (roll >= num * goodRate)
+        if (roll <= num * goodRate)
             return { description: 'Bom', isSuccess: true };
     }
-    if (roll >= num)
+    if (roll <= num)
         return { description: 'Sucesso', isSuccess: true };
-    if (roll < num)
+    if (roll > num)
         return { description: 'Fracasso', isSuccess: false };
 
     return { description: 'Unknown', isSuccess: false };
